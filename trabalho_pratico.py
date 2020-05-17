@@ -7,6 +7,8 @@ que vão executar os algoritmos """
 
 import sys
 from termcolor import colored
+import busca_profundidade
+import busca_largura
 
 def main( ) :
   matriz = []
@@ -62,10 +64,12 @@ def main( ) :
   print( "[ 2 ] Busca Best-First Search")
   print( "[ 3 ] Busca A*")
   print( "[ 3 ] Hill Climbing \n")
-  valor_lido = input("Digite o algortimo desejado e pressione 'enter': ")
-  
+  valor_lido = input("Digite o número do algortimo desejado e pressione 'enter': ")
 
-
+  if(valor_lido == "0"):
+    busca_profundidade.busca_profundidade(matriz)
+  elif(valor_lido == "1"):
+    busca_largura.busca_largura(matriz)
 
 if __name__ == "__main__":
   main( )
