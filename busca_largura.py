@@ -5,4 +5,11 @@
     Variaveis de saida: Lista de tuplas com o caminho do algoritmo """
 
 def busca_largura(matriz):
-  print(matriz)
+  pos_lin_ini = 0
+  pos_col_ini = 0
+
+  for elem_inicial in matriz[0]:
+    pos_col_ini += 1
+    if (elem_inicial == 2):
+      break
+  print(pos_col_ini)

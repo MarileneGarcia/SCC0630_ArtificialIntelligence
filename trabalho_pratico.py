@@ -7,13 +7,14 @@ que vão executar os algoritmos """
 
 import sys
 from termcolor import colored
+import copy
 import busca_profundidade
 import busca_largura
+import os,time
 
 def main( ) :
-  matriz = []
+  matriz = [] 
   arquivo = open(sys.argv[1], 'r')
-  
   """ Leitura do numero de linhas e colunas """
   primeira_linha = arquivo.readline()
   flag = 0
@@ -28,34 +29,50 @@ def main( ) :
       flag += 1
   n_linha = int(n_linha)
   n_coluna = int(n_coluna)
-  
-  for a in range(int(n_coluna/2) - 5):
-    print("", end = " ")
-  print("LABIRINTO")
 
   """ Matriz com os dados do arquivo fornecido """  
   for linha in arquivo:
     lista = []
     for coluna in linha : 
       if (coluna == "*"):
-        text = colored("#", "white")
-        print (text, end = '')
         lista.append(0)
       elif(coluna == "-"):
-        text = colored("#", "grey")
-        print (text, end = '')
         lista.append(1)
       elif(coluna == "#"):
-        text = colored("#", "blue")
-        print (text, end = '')
         lista.append(2)
       elif(coluna == "$"):
-        text = colored("#", "red")
-        print (text, end = '')
         lista.append(3)
-    print("")
     matriz.append(lista)
   arquivo.close()
+
+  impressao(matriz)
+
+""" Funcao para imprimir a matriz """
+def impressao(matriz):
+  os.system("clear")
+  copia_matriz = copy.deepcopy(matriz)
+
+  for a in range(int(len(copia_matriz[0])/2) - 5):
+    print("", end = " ")
+  print("LABIRINTO")
+
+  caminho = []
+  """ Matriz com os dados do arquivo fornecido """  
+  for n in copia_matriz:
+    for m in n:
+      if(m == 0):
+        text = colored("#", "white")
+        print (text, end = '')
+      elif(m == 1):
+        text = colored("#", "grey")
+        print (text, end = '')
+      elif(m == 2):
+        text = colored("#", "red")
+        print (text, end = '')
+      elif(m == 3):
+        text = colored("#", "blue")
+        print (text, end = '')
+    print("")
 
   """ Escolher o algoritmo a ser executado """
   print("\nOs algoritmos que podem realizar a busca pelos caminhos do labirinto são: ")
@@ -63,13 +80,29 @@ def main( ) :
   print( "[ 1 ] Busca em largura")
   print( "[ 2 ] Busca Best-First Search")
   print( "[ 3 ] Busca A*")
-  print( "[ 3 ] Hill Climbing \n")
-  valor_lido = input("Digite o número do algortimo desejado e pressione 'enter': ")
+  print( "[ 3 ] Hill Climbing")
+  print( "[ 4 ] Sair \n")
+  valor_lido = input("Digite o número desejado e pressione 'enter': ")
 
   if(valor_lido == "0"):
-    busca_profundidade.busca_profundidade(matriz)
+    lista = busca_profundidade.busca_profundidade(copia_matriz)
+    print("O caminho obtido pela busca em profundidade, de acordo com a estrategia de controle, foi: ")
+    print(lista)
+    print("\nDeseja realizar outro tipo de busca ?")
+    print( "[ 0 ] Sim")
+    print( "[ 1 ] Não")
+    valor_lido = input("Digite o número desejado e pressione 'enter': ")
+    if(valor_lido == "0"):
+      impressao(matriz)
+    else:
+      return -1
+
   elif(valor_lido == "1"):
-    busca_largura.busca_largura(matriz)
+    busca_largura.busca_largura(copia_matriz)
+
+  elif(valor_lido == "4"):
+    return -1
+
 
 if __name__ == "__main__":
   main( )
