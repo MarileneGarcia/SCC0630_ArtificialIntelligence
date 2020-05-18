@@ -98,7 +98,17 @@ def impressao(matriz):
       return -1
 
   elif(valor_lido == "1"):
-    busca_largura.busca_largura(copia_matriz)
+    lista = busca_largura.busca_largura(copia_matriz)
+    print("O caminho obtido pela busca em largura, de acordo com a estrategia de controle, foi: ")
+    print(lista)
+    print("\nDeseja realizar outro tipo de busca ?")
+    print( "[ 0 ] Sim")
+    print( "[ 1 ] Não")
+    valor_lido = input("Digite o número desejado e pressione 'enter': ")
+    if(valor_lido == "0"):
+      impressao(matriz)
+    else:
+      return -1
 
   elif(valor_lido == "4"):
     return -1
