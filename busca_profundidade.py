@@ -10,17 +10,21 @@ def busca_profundidade(matriz):
   time.sleep(0.5)
   os.system("clear")
 
-  pos_lin = 0
-  pos_col = 0
+  flag_r = 0
+  flag_c = 0 
   elem_inicial = 0
   controle = 0
 
   """ Descobrindo a posicao inicial """
-  for elem_inicial in matriz[0]:
-    if (elem_inicial == 2):
-      break
-    pos_col += 1
-  
+  for i in matriz:
+    for j in i :
+      if (j == 2):
+        pos_lin = flag_r
+        pos_col = flag_c
+      flag_c += 1
+    flag_c = 0
+    flag_r += 1
+  print(pos_lin, pos_col)
   lista = []
   tupla = (pos_lin, pos_col)
   lista, controle = backtracking(matriz,lista,tupla,controle) 
