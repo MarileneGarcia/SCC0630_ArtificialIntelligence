@@ -24,7 +24,6 @@ def busca_profundidade(matriz):
       flag_c += 1
     flag_c = 0
     flag_r += 1
-  print(pos_lin, pos_col)
   lista = []
   tupla = (pos_lin, pos_col)
   lista, controle = backtracking(matriz,lista,tupla,controle) 

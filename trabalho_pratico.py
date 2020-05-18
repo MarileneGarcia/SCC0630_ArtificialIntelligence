@@ -88,6 +88,12 @@ def impressao(matriz):
     lista = busca_profundidade.busca_profundidade(copia_matriz)
     print("O caminho obtido pela busca em profundidade, de acordo com a estrategia de controle, foi: ")
     print(lista)
+
+    # Salvar o resultado num arquivo
+    arquivo_bp = open("resultado_busca_profundidade.txt", 'w')
+    arquivo_bp.write('\n'.join('%s %s' % x for x in lista))
+    arquivo_bp.close()
+    
     print("\nDeseja realizar outro tipo de busca ?")
     print( "[ 0 ] Sim")
     print( "[ 1 ] Não")
@@ -101,6 +107,12 @@ def impressao(matriz):
     lista = busca_largura.busca_largura(copia_matriz)
     print("O caminho obtido pela busca em largura, de acordo com a estrategia de controle, foi: ")
     print(lista)
+
+    # Salvar o resultado num arquivo
+    arquivo_bl = open("resultado_busca_largura.txt", 'w')
+    arquivo_bl.write('\n'.join('%s %s' % x for x in lista))
+    arquivo_bl.close()
+    
     print("\nDeseja realizar outro tipo de busca ?")
     print( "[ 0 ] Sim")
     print( "[ 1 ] Não")
