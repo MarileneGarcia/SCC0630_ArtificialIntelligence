@@ -67,10 +67,10 @@ def impressao(matriz):
         text = colored("#", "grey")
         print (text, end = '')
       elif(m == 2):
-        text = colored("#", "red")
+        text = colored("#", "blue")
         print (text, end = '')
       elif(m == 3):
-        text = colored("#", "blue")
+        text = colored("#", "red")
         print (text, end = '')
     print("")
 
@@ -78,14 +78,14 @@ def impressao(matriz):
   print("\nOs algoritmos que podem realizar a busca pelos caminhos do labirinto são: ")
   print( "[ 0 ] Busca em profundidade")
   print( "[ 1 ] Busca em largura")
-  print( "[ 2 ] Busca Best-First Search")
-  print( "[ 3 ] Busca A*")
-  print( "[ 3 ] Hill Climbing")
-  print( "[ 4 ] Sair \n")
+  print( "[ 2 ] Sair \n")
   valor_lido = input("Digite o número desejado e pressione 'enter': ")
 
   if(valor_lido == "0"):
+    ini = time.time()
     lista = busca_profundidade.busca_profundidade(copia_matriz)
+    fim = time.time()
+    print("O tempo da busca em profundidade, de acordo com a estrategia de controle, foi: ", fim - ini)
     print("O caminho obtido pela busca em profundidade, de acordo com a estrategia de controle, foi: ")
     print(lista)
 
@@ -104,7 +104,10 @@ def impressao(matriz):
       return -1
 
   elif(valor_lido == "1"):
+    ini = time.time()
     lista = busca_largura.busca_largura(copia_matriz)
+    fim = time.time()
+    print("O tempo da busca em largura, de acordo com a estrategia de controle, foi: ", fim - ini)
     print("O caminho obtido pela busca em largura, de acordo com a estrategia de controle, foi: ")
     print(lista)
 
@@ -122,7 +125,7 @@ def impressao(matriz):
     else:
       return -1
 
-  elif(valor_lido == "4"):
+  elif(valor_lido == "2"):
     return -1
 
 

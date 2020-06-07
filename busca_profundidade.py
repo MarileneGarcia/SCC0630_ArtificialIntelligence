@@ -6,7 +6,13 @@
 from termcolor import colored
 import os,time
 
+pos_lin = 0
+pos_col = 0
+
 def busca_profundidade(matriz):
+  global pos_lin 
+  global pos_col
+
   time.sleep(0.5)
   os.system("clear")
 
@@ -48,8 +54,10 @@ def backtracking(matriz, lista, tupla, a):
   # Marca atual posicao como visitada
   matriz[r][c] = 8
   
+  '''
   # Imprime os nos visitados
   print("Busca em profundidade: \n")
+  matriz[pos_lin][pos_col] = 2
   for n in matriz:
     for m in n:
       if(m == 8):
@@ -65,15 +73,16 @@ def backtracking(matriz, lista, tupla, a):
         text = colored("#", "grey")
         print (text, end = '')
       elif(m == 2):
-        text = colored("#", "red")
-        print (text, end = '')
-      elif(m == 3):
         text = colored("#", "blue")
         print (text, end = '')
+      elif(m == 3):
+        text = colored("#", "red")
+        print (text, end = '')
     print("")
+    matriz[pos_lin][pos_col] = 2
   time.sleep(0.3)
   os.system("clear")
-  
+  '''
   # Verifica se a posicao de cima ja foi visitado, se não foi vai ser adicionado a lista
   if (r != 0):
     if(matriz [r - 1] [c] != 8 and matriz [r - 1] [c] != 1 and matriz [r - 1] [c] != -1):

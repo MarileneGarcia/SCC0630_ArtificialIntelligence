@@ -93,8 +93,10 @@ def busca_largura(matriz):
     if(flag == 0):
       matriz[r][c] = -1
 
+    '''
     # Imprime os nos visitados
     print("Busca em largura: \n")
+    matriz[pos_lin][pos_col] = 2
     for n in matriz:
       for m in n:
         if(m == 8):
@@ -110,13 +112,14 @@ def busca_largura(matriz):
           text = colored("#", "grey")
           print (text, end = '')
         elif(m == 2):
-          text = colored("#", "red")
+          text = colored("#", "blue")
           print (text, end = '')
         elif(m == 3):
-          text = colored("#", "blue")
+          text = colored("#", "red")
           print (text, end = '')
       print("")
     time.sleep(0.1)
     os.system("clear")
+    '''
 
   return lista
