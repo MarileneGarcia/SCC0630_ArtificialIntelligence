@@ -82,10 +82,10 @@ def impressao(matriz):
   valor_lido = input("Digite o número desejado e pressione 'enter': ")
 
   if(valor_lido == "0"):
-    ini = time.time()
+    #ini = time.time()
     lista = busca_profundidade.busca_profundidade(copia_matriz)
-    fim = time.time()
-    print("O tempo da busca em profundidade, de acordo com a estrategia de controle, foi: ", fim - ini)
+    #fim = time.time()
+    #print("O tempo da busca em profundidade, de acordo com a estrategia de controle, foi: ", fim - ini)
     print("O caminho obtido pela busca em profundidade, de acordo com a estrategia de controle, foi: ")
     print(lista)
 
@@ -104,10 +104,10 @@ def impressao(matriz):
       return -1
 
   elif(valor_lido == "1"):
-    ini = time.time()
+    #ini = time.time()
     lista = busca_largura.busca_largura(copia_matriz)
-    fim = time.time()
-    print("O tempo da busca em largura, de acordo com a estrategia de controle, foi: ", fim - ini)
+    #fim = time.time()
+    #print("O tempo da busca em largura, de acordo com a estrategia de controle, foi: ", fim - ini)
     print("O caminho obtido pela busca em largura, de acordo com a estrategia de controle, foi: ")
     print(lista)
 

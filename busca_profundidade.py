@@ -54,7 +54,7 @@ def backtracking(matriz, lista, tupla, a):
   # Marca atual posicao como visitada
   matriz[r][c] = 8
   
-  '''
+  
   # Imprime os nos visitados
   print("Busca em profundidade: \n")
   matriz[pos_lin][pos_col] = 2
@@ -82,7 +82,7 @@ def backtracking(matriz, lista, tupla, a):
     matriz[pos_lin][pos_col] = 2
   time.sleep(0.3)
   os.system("clear")
-  '''
+  
   # Verifica se a posicao de cima ja foi visitado, se não foi vai ser adicionado a lista
   if (r != 0):
     if(matriz [r - 1] [c] != 8 and matriz [r - 1] [c] != 1 and matriz [r - 1] [c] != -1):

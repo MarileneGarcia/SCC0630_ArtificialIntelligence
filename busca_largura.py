@@ -93,7 +93,7 @@ def busca_largura(matriz):
     if(flag == 0):
       matriz[r][c] = -1
 
-    '''
+   
     # Imprime os nos visitados
     print("Busca em largura: \n")
     matriz[pos_lin][pos_col] = 2
@@ -120,6 +120,6 @@ def busca_largura(matriz):
       print("")
     time.sleep(0.1)
     os.system("clear")
-    '''
+    
 
   return lista
