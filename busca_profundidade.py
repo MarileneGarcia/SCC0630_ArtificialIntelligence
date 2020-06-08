@@ -35,6 +35,34 @@ def busca_profundidade(matriz):
   lista, controle = backtracking(matriz,lista,tupla,controle) 
   return lista
 
+def imprime_matriz(matriz):
+    # Imprime os nos visitados
+    print("Busca em Profundidade: \n")
+    matriz[pos_lin][pos_col] = 2
+    for n in matriz:
+        for m in n:
+            if (m == 8):
+                text = colored("#", "yellow")
+                print(text, end='')
+            elif (m == -1):
+                text = colored("#", "magenta")
+                print(text, end='')
+            elif (m == 0):
+                text = colored("#", "white")
+                print(text, end='')
+            elif (m == 1):
+                text = colored("#", "grey")
+                print(text, end='')
+            elif (m == 2):
+                text = colored("#", "blue")
+                print(text, end='')
+            elif (m == 3):
+                text = colored("#", "red")
+                print(text, end='')
+        print("")
+    time.sleep(0.1)
+    os.system("clear")
+
 def backtracking(matriz, lista, tupla, a):
   """ Seguindo a estrategia de controle 
   ir para cima, ir para direita, ir para esquerda, ir para baixo"""
@@ -56,32 +84,7 @@ def backtracking(matriz, lista, tupla, a):
   
   
   # Imprime os nos visitados
-  print("Busca em profundidade: \n")
-  matriz[pos_lin][pos_col] = 2
-  for n in matriz:
-    for m in n:
-      if(m == 8):
-        text = colored("#", "yellow")
-        print (text, end = '')
-      elif(m == -1):
-        text = colored("#", "magenta")
-        print (text, end = '')
-      elif(m == 0):
-        text = colored("#", "white")
-        print (text, end = '')
-      elif(m == 1):
-        text = colored("#", "grey")
-        print (text, end = '')
-      elif(m == 2):
-        text = colored("#", "blue")
-        print (text, end = '')
-      elif(m == 3):
-        text = colored("#", "red")
-        print (text, end = '')
-    print("")
-    matriz[pos_lin][pos_col] = 2
-  time.sleep(0.3)
-  os.system("clear")
+  imprime_matriz(matriz)
   
   # Verifica se a posicao de cima ja foi visitado, se não foi vai ser adicionado a lista
   if (r != 0):

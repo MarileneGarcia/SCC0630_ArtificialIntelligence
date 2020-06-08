@@ -10,6 +10,9 @@ from termcolor import colored
 import copy
 import busca_profundidade
 import busca_largura
+import busca_best_first
+import busca_hill_climbing
+import busca_A
 import os,time
 
 def main( ) :
@@ -76,9 +79,12 @@ def impressao(matriz):
 
   """ Escolher o algoritmo a ser executado """
   print("\nOs algoritmos que podem realizar a busca pelos caminhos do labirinto são: ")
-  print( "[ 0 ] Busca em profundidade")
-  print( "[ 1 ] Busca em largura")
-  print( "[ 2 ] Sair \n")
+  print( "[ 0 ] Busca em Profundidade")
+  print( "[ 1 ] Busca em Largura")
+  print( "[ 2 ] Busca Best First Search")
+  print( "[ 3 ] Busca A*")
+  print( "[ 4 ] Busca Hill Climbing")
+  print( "[ 5 ] Sair \n")
   valor_lido = input("Digite o número desejado e pressione 'enter': ")
 
   if(valor_lido == "0"):
@@ -126,6 +132,74 @@ def impressao(matriz):
       return -1
 
   elif(valor_lido == "2"):
+    #ini = time.time()
+    lista = busca_best_first.busca_best_first(copia_matriz)
+    #fim = time.time()
+    #print("O tempo da busca em BFS foi: ", fim - ini)
+    print("O caminho obtido pela BFS foi: ")
+    print(lista)
+
+    # Salvar o resultado num arquivo
+    arquivo_bp = open("resultado_busca_bfs.txt", 'w')
+    arquivo_bp.write('\n'.join('%s %s' % x for x in lista))
+    arquivo_bp.close()
+    
+    print("\nDeseja realizar outro tipo de busca ?")
+    print( "[ 0 ] Sim")
+    print( "[ 1 ] Não")
+    valor_lido = input("Digite o número desejado e pressione 'enter': ")
+    if(valor_lido == "0"):
+      impressao(matriz)
+    else:
+      return -1
+
+  elif(valor_lido == "3"):
+    #ini = time.time()
+    lista = busca_A.busca_A(copia_matriz)
+    #fim = time.time()
+    #print("O tempo da busca em A* foi: ", fim - ini)
+    print("O caminho obtido pela busca em A* foi: ")
+    print(lista)
+
+    # Salvar o resultado num arquivo
+    arquivo_bl = open("resultado_busca_A.txt", 'w')
+    arquivo_bl.write('\n'.join('%s %s' % x for x in lista))
+    arquivo_bl.close()
+    
+    print("\nDeseja realizar outro tipo de busca ?")
+    print( "[ 0 ] Sim")
+    print( "[ 1 ] Não")
+    valor_lido = input("Digite o número desejado e pressione 'enter': ")
+    if(valor_lido == "0"):
+      impressao(matriz)
+    else:
+      return -1
+
+  elif(valor_lido == "4"):
+    #ini = time.time()
+    lista = busca_hill_climbing.busca_hill_climbing(copia_matriz)
+    #fim = time.time()
+    #print("O tempo da busca em Hill Clibing foi: ", fim - ini)
+    os.system("clear")
+    print("O caminho obtido pela busca em Hill Clibing foi: ")
+    print(lista)
+
+    # Salvar o resultado num arquivo
+    arquivo_bl = open("resultado_busca_hill clibing.txt", 'w')
+    arquivo_bl.write('\n'.join('%s %s' % x for x in lista))
+    arquivo_bl.close()
+    
+    print("\nDeseja realizar outro tipo de busca ?")
+    print( "[ 0 ] Sim")
+    print( "[ 1 ] Não")
+    valor_lido = input("Digite o número desejado e pressione 'enter': ")
+    if(valor_lido == "0"):
+      impressao(matriz)
+    else:
+      return -1
+    
+
+  elif(valor_lido == "5"):
     return -1
 
 
