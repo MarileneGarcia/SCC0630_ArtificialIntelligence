@@ -1,1 +1,1 @@
-# Trabalho_Inteligencia_Artificial
+# Code to Artificial Intelligence course
